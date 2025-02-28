@@ -1,0 +1,251 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{14}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Akeroyd(2024)]%
+        {Michael_2024}
+\bibfield{author}{\bibinfo{person}{Michael~A. Akeroyd}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Population estimates of the number of adults in the
+  UK with a hearing loss updated using 2021 and 2022 census data}.
+\newblock \bibinfo{journal}{\emph{International Journal of Audiology}}
+  (\bibinfo{year}{2024}).
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1080/14992027.2024.2341956}
+\showDOI{\tempurl}
+
+
+\bibitem[Bikos et~al\mbox{.}(2015)]%
+        {Bikos_2015}
+\bibfield{author}{\bibinfo{person}{Marios Bikos}, \bibinfo{person}{Yuta Itoh},
+  \bibinfo{person}{Gudrun Klinker}, {and} \bibinfo{person}{Konstantinos
+  Moustakas}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{An Interactive Augmented Reality Chess Game Using
+  Bare-Hand Pinch Gestures}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  2015 International Conference on Cyberworlds (CW)}}.
+  \bibinfo{publisher}{IEEE}, \bibinfo{pages}{57--64}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/CW.2015.15}
+\showDOI{\tempurl}
+
+
+\bibitem[Chen and Janicki(2020)]%
+        {Chen_2020}
+\bibfield{author}{\bibinfo{person}{YF Chen} {and} \bibinfo{person}{S Janicki}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{A Cognitive-Based Board Game With Augmented Reality
+  for Older Adults: Development and Usability Study}.
+\newblock \bibinfo{journal}{\emph{JMIR Serious Games}} \bibinfo{volume}{8},
+  \bibinfo{number}{4} (\bibinfo{year}{2020}), \bibinfo{pages}{e22007}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.2196/22007}
+\showDOI{\tempurl}
+
+
+\bibitem[Creed et~al\mbox{.}(2023)]%
+        {Chris_2023}
+\bibfield{author}{\bibinfo{person}{Chris Creed}, \bibinfo{person}{Maadh
+  Al-Kalbani}, \bibinfo{person}{Arthur Theil}, \bibinfo{person}{Sayan Sarcar},
+  {and} \bibinfo{person}{Ian Williams}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Inclusive AR/VR: Accessibility Barriers for
+  Immersive Technologies}.
+\newblock  (\bibinfo{year}{2023}).
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1007/s10209-023-00969-0}
+\showDOI{\tempurl}
+\showeprint{arXiv:2304.13465}
+
+
+\bibitem[Davis(2021)]%
+        {Davis_2021}
+\bibfield{author}{\bibinfo{person}{Rebecca Davis}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{The Feasibility of Using Virtual Reality and Eye
+  Tracking in Research With Older Adults With and Without {Alzheimer's}
+  Disease}.
+\newblock \bibinfo{journal}{\emph{Frontiers in Aging Neuroscience}}
+  \bibinfo{volume}{13} (\bibinfo{year}{2021}), \bibinfo{pages}{607219}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3389/fnagi.2021.607219}
+\showDOI{\tempurl}
+
+
+\bibitem[Drakakis and Gklavakis(2023)]%
+        {Drakakis_2023}
+\bibfield{author}{\bibinfo{person}{Emmanouil Drakakis} {and}
+  \bibinfo{person}{Dimitris Gklavakis}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Feasibility and Acceptance of Augmented and Virtual
+  Reality Exergames to Train Motor and Cognitive Skills of Elderly}.
+\newblock \bibinfo{journal}{\emph{Computers}}  \bibinfo{volume}{12}
+  (\bibinfo{date}{02} \bibinfo{year}{2023}), \bibinfo{pages}{52}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3390/computers12030052}
+\showDOI{\tempurl}
+
+
+\bibitem[for Health and Research(2024)]%
+        {ELSA2024}
+\bibfield{author}{\bibinfo{person}{National~Institute for Health} {and}
+  \bibinfo{person}{Care Research}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{How can we reduce the toll of loneliness in older
+  adults?}
+\newblock \bibinfo{journal}{\emph{NIHR Evidence}} (\bibinfo{date}{June}
+  \bibinfo{year}{2024}).
+\newblock
+\urldef\tempurl%
+\url{https://evidence.nihr.ac.uk/collection/how-can-we-reduce-the-toll-of-loneliness-in-older-adults/}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Green(1985)]%
+        {Paul1985}
+\bibfield{author}{\bibinfo{person}{Paul Green}.}
+  \bibinfo{year}{1985}\natexlab{}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the Human Factors and
+  Ergonomics Society Annual Meeting}} \bibinfo{volume}{29}, \bibinfo{number}{5}
+  (\bibinfo{year}{1985}).
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1177/154193128502900515}
+\showDOI{\tempurl}
+
+
+\bibitem[Laine and Koivisto(2022)]%
+        {Laine_2022}
+\bibfield{author}{\bibinfo{person}{Teemu~H. Laine} {and} \bibinfo{person}{Antti
+  Koivisto}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Augmented Reality Games and Presence: A Systematic
+  Review}}.
+\newblock \bibinfo{journal}{\emph{Journal of Imaging}} \bibinfo{volume}{8},
+  \bibinfo{number}{4} (\bibinfo{year}{2022}), \bibinfo{pages}{91}.
+\newblock
+\showISSN{2313-433X}
+\urldef\tempurl%
+\url{https://doi.org/10.3390/jimaging8040091}
+\showDOI{\tempurl}
+
+
+\bibitem[Lee et~al\mbox{.}(2023)]%
+        {Lee_2023}
+\bibfield{author}{\bibinfo{person}{Kyungjun Lee}, \bibinfo{person}{Hong Li},
+  \bibinfo{person}{Muhammad~Rizky Wellyanto}, \bibinfo{person}{Yu~Jiang Tham},
+  \bibinfo{person}{Andrés Monroy-Hernández}, \bibinfo{person}{Fannie Liu},
+  \bibinfo{person}{Brian~A. Smith}, {and} \bibinfo{person}{Rajan Vaish}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Exploring Immersive Interpersonal Communication via
+  AR}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the ACM on Human-Computer
+  Interaction}} \bibinfo{volume}{7}, \bibinfo{number}{CSCW1}
+  (\bibinfo{date}{April} \bibinfo{year}{2023}), \bibinfo{pages}{Article 50}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3579483}
+\showDOI{\tempurl}
+
+
+\bibitem[Lin et~al\mbox{.}(2021)]%
+        {Lin_2021}
+\bibfield{author}{\bibinfo{person}{Jih-Hsuan~Tammy Lin},
+  \bibinfo{person}{Yi-Ting Hung}, \bibinfo{person}{Shu-Chuan Yeh}, {and}
+  \bibinfo{person}{Hsin-Yu Chang}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Exploring the Proteus Effect on Elderly Adults'
+  Exercise Outcomes Through Virtual Reality Avatar Manipulation: Experimental
+  Study}.
+\newblock \bibinfo{journal}{\emph{Frontiers in Psychology}}
+  \bibinfo{volume}{12} (\bibinfo{year}{2021}), \bibinfo{pages}{693545}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3389/fpsyg.2021.693545}
+\showDOI{\tempurl}
+
+
+\bibitem[of~Serious~Games(2024)]%
+        {CogARC2024}
+\bibfield{author}{\bibinfo{person}{International~Journal of Serious~Games}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Augmented Reality Cubes for Cognitive Gaming:
+  Preliminary Usability and Game Experience Testing}.
+\newblock \bibinfo{journal}{\emph{International Journal of Serious Games}}
+  \bibinfo{volume}{3}, \bibinfo{number}{1} (\bibinfo{year}{2024}).
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.17083/ijsg.v3i1.106}
+\showDOI{\tempurl}
+
+
+\bibitem[Whaiduzzaman(2023)]%
+        {Concept2023}
+\bibfield{author}{\bibinfo{person}{Md Whaiduzzaman}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Concept to Reality: An Integrated Approach to
+  Testing Software User Interfaces}.
+\newblock \bibinfo{journal}{\emph{Applied Sciences}} \bibinfo{volume}{13},
+  \bibinfo{number}{21} (\bibinfo{year}{2023}), \bibinfo{pages}{11997}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3390/app132111997}
+\showDOI{\tempurl}
+
+
+\bibitem[Williams et~al\mbox{.}(2021)]%
+        {Thomas_2021}
+\bibfield{author}{\bibinfo{person}{Thomas~J. Williams},
+  \bibinfo{person}{Simon~L. Jones}, \bibinfo{person}{Christof Lutteroth},
+  \bibinfo{person}{Elies Dekoninck}, {and} \bibinfo{person}{Hazel~C Boyd}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Augmented Reality and Older Adults: A Comparison of
+  Prompting Types}. In \bibinfo{booktitle}{\emph{Proceedings of the 2021 CHI
+  Conference on Human Factors in Computing Systems}} (Yokohama, Japan)
+  \emph{(\bibinfo{series}{CHI '21})}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{address}{New York, NY, USA}, Article
+  \bibinfo{articleno}{723}, \bibinfo{numpages}{13}~pages.
+\newblock
+\showISBNx{9781450380966}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3411764.3445476}
+\showDOI{\tempurl}
+
+
+\end{thebibliography}

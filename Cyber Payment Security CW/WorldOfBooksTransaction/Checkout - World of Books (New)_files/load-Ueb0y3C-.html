@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Shopify UI Extensions Internal</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      (function () {
+        if (
+          !/(^extensions\.shopifycdn\.com|^cdn\.shopify(?:cloud)?\.com|^cdn\.shopifycdn\.net|^localhost:\d+|^checkout-web\.myshopify\.io(:\d+)?|\.spin\.dev)$/.test(
+            location.host,
+          )
+        ) {
+          throw Error('blocked');
+        }
+
+        const workerCache = Object.create(null);
+
+        window.addEventListener('message', function (event) {
+          const data = event.data;
+
+          if (data == null) return;
+
+          if (
+            typeof data.__run === 'object' &&
+            typeof data.__run.id === 'string' &&
+            typeof data.__run.url === 'string'
+          ) {
+            runWorker(event);
+          } else if (typeof data.__terminate === 'string') {
+            terminateWorker(data.__terminate);
+          }
+        });
+
+        /**
+         * @param {MessageEvent<{
+         *   __run: {
+         *     id: string,
+         *     url: string,
+         *     allowNetworkAccess: boolean,
+         *     sandboxScript: string | Blob,
+         *     webWorkerOptions: WorkerOptions,
+         *   },
+         * }>} event
+         */
+        function runWorker(event) {
+          const {id, url, allowNetworkAccess, sandboxScript, webWorkerOptions} =
+            event.data.__run;
+
+          const existingWorker = workerCache[id];
+          if (existingWorker) return;
+
+          const workerScript =
+            sandboxScript instanceof Blob
+              ? URL.createObjectURL(sandboxScript)
+              : sandboxScript;
+
+          const worker = new Worker(workerScript, webWorkerOptions);
+
+          const errorPort = event.ports[1];
+          worker.addEventListener('error', errorListener);
+          worker.addEventListener(
+            'message',
+            createFetchListener(allowNetworkAccess),
+          );
+
+          worker.postMessage({__replace: event.ports[0]}, [event.ports[0]]);
+          workerCache[id] = worker;
+
+          function errorListener(ev) {
+            let errorPayload;
+            // Only chrome supports serializing Error objects out of the box
+            if (ev.error) {
+              errorPayload = {
+                name: ev.error.name,
+                message: ev.error.message,
+                stack: ev.error.stack,
+              };
+            } else {
+              let errorName = 'Error';
+              if (ev.message.indexOf('ExtensionSandboxError') !== -1) {
+                errorName = 'ExtensionSandboxError';
+              }
+              errorPayload = {
+                name: errorName,
+                message: ev.message,
+                stack: 'at ' + ev.filename + ':' + ev.lineno + ':' + ev.colno,
+              };
+            }
+            errorPort.postMessage(errorPayload);
+          }
+        }
+
+        /**
+         * @param {string} id
+         */
+        function terminateWorker(id) {
+          const worker = workerCache[id];
+          if (worker) {
+            delete workerCache[id];
+            worker.terminate();
+          }
+        }
+
+        /**
+         * Creates a fetch listener for a worker.
+         *
+         * @param {boolean} allowNetworkAccess
+         */
+        function createFetchListener(allowNetworkAccess) {
+          /**
+           * @param {MessageEvent<{
+           *   action: 'fetch',
+           *   url: string,
+           *   requestInit: RequestInit,
+           *   returnPort: MessagePort
+           * }>} fetchMessageEvent
+           */
+          return function fetchListener(fetchMessageEvent) {
+            if (
+              !fetchMessageEvent.data ||
+              !fetchMessageEvent.data.action ||
+              fetchMessageEvent.data.action !== 'fetch'
+            ) {
+              return;
+            }
+
+            fetchOnBehalfOfWorker(
+              fetchMessageEvent.data.url,
+              fetchMessageEvent.data.requestInit,
+              fetchMessageEvent.data.returnPort,
+              allowNetworkAccess,
+            );
+          };
+        }
+
+        /**
+         * Fetch within the iframe on behalf of the extension web worker.
+         *
+         * The extension web worker will postMessage a fetch request, this iframe
+         * will receive the message, perform the actual fetch, and postMessage
+         * the response back to the web worker. This sets the fetch origin to
+         * this iframe rather than null: the origin of the web worker when given
+         * an opaque origin. By using a domain origin, this also activates
+         * the browser's HTTP cache.
+         *
+         * @param {string} url
+         * @param {RequestInit} requestInit
+         * @param {MessagePort} returnPort
+         * @param {boolean} allowNetworkAccess
+         * @returns {Promise<void>}
+         */
+        function fetchOnBehalfOfWorker(
+          url,
+          requestInit,
+          returnPort,
+          allowNetworkAccess,
+        ) {
+          try {
+            /*
+              this error should only be surfaced if a developer attempts to
+              subvert `getFetch` by postMessaging out of their extensions' web
+              worker to attempt to call this directly
+            */
+            if (!allowNetworkAccess) {
+              throw new Error('fetch is not allowed');
+            }
+
+            /*
+              Don't allow the workers to read content from the iframe origin,
+              https://extensions.shopifycdn.com, as this wouldn't require CORS.
+            */
+            if (new URL(url).origin === window.location.origin) {
+              throw new Error('fetch to the iframe origin not allowed.');
+            }
+
+            if (new URL(url).protocol !== 'https:') {
+              throw new Error('URL must be secure (HTTPS)');
+            }
+          } catch (error) {
+            returnPort.postMessage({error});
+            returnPort.close();
+            return;
+          }
+
+          const controller = (() => {
+            try {
+              return new AbortController();
+            } catch (error) {
+              return null;
+            }
+          })();
+
+          returnPort.addEventListener('message', function (event) {
+            if (event.data == null) return;
+
+            if (event.data.action === 'abort') {
+              if (controller) {
+                controller.abort(event.data.reason || undefined);
+              }
+              return;
+            }
+          });
+
+          returnPort.start();
+
+          const requestInitWithoutCredentials = {
+            ...requestInit,
+            credentials: 'omit',
+          };
+
+          if (controller) {
+            requestInitWithoutCredentials.signal = controller.signal;
+          }
+
+          fetch(url, requestInitWithoutCredentials)
+            .then((response) => {
+              return Promise.all([response, response.arrayBuffer()]);
+            })
+            .then(([response, body]) => {
+              returnPort.postMessage(
+                {
+                  response: {
+                    body,
+                    init: {
+                      headers: [...response.headers],
+                      status: response.status,
+                      statusText: response.statusText,
+                    },
+                  },
+                },
+                [body],
+              );
+
+              returnPort.close();
+            })
+            .catch((error) => {
+              returnPort.postMessage({error});
+              returnPort.close();
+            });
+        }
+      })();
+    </script>
+  
+
+</body></html>

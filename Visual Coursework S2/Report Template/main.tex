@@ -1,0 +1,208 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}               % CVPR style
+\usepackage{times}              % Font
+\usepackage{graphicx}           % For including images
+\usepackage{xcolor}             % For color customization in text
+\usepackage{hyperref}           % For hyperlinks
+\usepackage{amsmath}            % For mathematical formulas
+\usepackage{caption}            % For customizing captions
+\usepackage{multirow}           % For multi-row tables
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{Visual Computing Coursework Report: Object Tracking and 3D Rendering}
+\author{All group member names \\
+University of Bath \\
+{\tt\small Group number}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+For this section, you can write something like follows. Of course you do not have to follow exactly what is written in the intro section. I am writing this just as a guide. 
+
+This report covers the implementation and analysis of two main areas of visual computing: \textbf{Object Tracking} and \textbf{3D Rendering}. The objective of the tracking coursework is to----, while the rendering coursework is ------. Mention the tasks for tracking and rendering.
+
+The report is divided into two main sections. The first section focuses on the tracking tasks, and the second addresses the rendering tasks. Each section details the methods, implementation, evaluation, and further improvements for the respective tasks.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Part 1: Object Tracking Coursework}
+
+\subsection{Change Detection Using Gaussian Mixture Models (GMM)}
+\subsubsection{Explanations}
+1. Tasks to perform and how they're achieved. \\
+2. Description of mathematical background.
+
+\subsubsection{Implementation}
+
+%\begin{figure}[h!]
+   % \centering
+   % \includegraphics[width=0.45\textwidth]{gmm_code.png}  % Upload this image to Overleaf
+    %\caption{Change Detection using GMM.}
+    %\label{fig:gmm}
+%\end{figure}
+
+Discuss and explain the relevant functions.
+
+\subsubsection{Evaluation / Testing}
+1. Show that it works (no need to replicate every single part of the demo). \\
+2. Use of screenshots or numerical results as appropriate.
+
+\subsubsection{Discussion}
+1. Analyses of results and lessons learnt. \\
+2. Limitations of the models. Suggest potential improvements if more time or resources were available.
+
+\subsection{Further Experiments}
+Future improvements to the existing models that can improve the results. Further experiments on additional inputs and their subsequent discussions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Custom Lucas-Kanade Optical Flow (with OpenCV GMM)}
+
+\subsubsection{Explanations}
+1. Tasks to perform and how they're achieved. \\
+2. Description of mathematical background. You can describe the Lucas-Kanade optical flow algorithm, focusing on its use in tracking objects detected by GMM.
+
+\subsubsection{Implementation}
+%\begin{figure}[h!]
+   % \centering
+    %\includegraphics[width=0.45\textwidth]{lucas_kanade_code.png}  % Upload this image to Overleaf
+    %\caption{Custom Lucas-Kanade Optical Flow Implementation.}
+    %\label{fig:lucas-kanade}
+%\end{figure}
+Discuss and explain the relevant functions.
+
+\subsubsection{Evaluation / Testing}
+1. Show that it works (no need to replicate every single part of the demo). \\
+2. Use of screenshots or numerical results as appropriate.
+
+\subsubsection{Discussion}
+1. Analyses of results and lessons learnt. \\
+2. Limitations of the models. Suggest potential improvements if more time or resources were available.
+
+\subsection{Further Experiments}
+Future improvements to the existing models that can improve the results. Further experiments on additional inputs and their subsequent discussions. What would happen if there is object occlusion or sudden motion changes? Adding such insights will improve this section.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Template Matching for Object Tracking}
+
+\subsubsection{Explanations}
+1. Tasks to perform (template matching and the use of Normalized Cross-Correlation (NCC) for object tracking) and how they're achieved. \\
+2. Description of mathematical background.
+
+\subsubsection{Implementation}
+%\begin{figure}[h!]
+   % \centering
+    %\includegraphics[width=0.45\textwidth]{template_matching_code.png}  % Upload this image to Overleaf
+    %\caption{Template Matching Implementation.}
+    %\label{fig:template-matching}
+%\end{figure}
+Discuss and explain the relevant functions.
+
+\subsubsection{Evaluation / Testing}
+1. Show that it works (no need to replicate every single part of the demo). \\
+2. Use of screenshots or numerical results as appropriate.
+
+\subsubsection{Discussion}
+1. Analyses of results and lessons learnt. \\
+2. Limitations of the models. Suggest potential improvements if more time or resources were available.
+
+\subsection{Further Experiments}
+Future improvements to the existing models that can improve the results. Further experiments on additional inputs and their subsequent discussions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Improving Template Matching}
+
+\subsubsection{Explanations}
+1. Tasks to perform and how they're achieved (Discuss methods to improve template matching, including multi-scale matching, rotation-invariant techniques, and feature-based tracking using SIFT). \\
+2. Description of the mathematical background.
+
+\subsubsection{Implementation}
+%\begin{figure}[h!]
+   % \centering
+    %\includegraphics[width=0.45\textwidth]{sift_matching_code.png}  % Upload this image to Overleaf
+    %\caption{Feature-Based Matching with SIFT.}
+    %\label{fig:sift-matching}
+%\end{figure}
+Discuss and explain the relevant functions.
+
+\subsubsection{Evaluation / Testing}
+1. Show that it works (no need to replicate every single part of the demo). \\
+2. Use of screenshots or numerical results as appropriate.
+
+\subsubsection{Discussion}
+1. Analyses of results and lessons learnt. \\
+2. Limitations of the models. Suggest potential improvements if more time or resources were available.
+
+\subsection{Further Experiments}
+Future improvements to the existing models that can improve the results. Further experiments on additional inputs and their subsequent discussions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Part 2: 3D Rendering Coursework}
+
+\subsection{Rotate the Cube}
+\subsubsection{Explanations}
+Tasks to perform and how they're achieved. Description of mathematical background.
+
+\subsubsection{Implementation}
+%\begin{figure}[h!]
+   % \centering
+    %\includegraphics[width=0.45\textwidth]{cube_rotation_code.png}  % Upload this image to Overleaf
+    %\caption{Cube Rotation Implementation.}
+    %\label{fig:cube-rotation}
+%\end{figure}
+1. Relevant code snippets. \\
+2. Discussion and explanation of relevant functions.
+
+\subsubsection{Evaluation / Testing}
+1. Show that it works (no need to replicate every single part of the demo). \\
+2. Use of screenshots or numerical results as appropriate.
+
+\subsubsection{Discussion}
+1. Analyses of results and lessons learnt. \\
+2. Limitations of the models.
+
+\subsection{Further Experiments}
+Future improvements to the existing models that can improve the results. Further experiments on additional inputs and their subsequent discussions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Summary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+Summarize the key findings of both the tracking and rendering coursework (just mentioning a few highlights will do) and what you enjoyed learning. Give some applications where tracking and rendering are used.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9}
+
+\bibitem{opencv} 
+OpenCV Documentation. \\
+\texttt{https://docs.opencv.org/}
+
+\bibitem{threejs}
+Three.js Documentation. \\
+\texttt{https://threejs.org/docs/}
+
+\bibitem{peps}
+Python PEP 668 Specification. \\
+\texttt{https://peps.python.org/pep-0668/}
+
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+\section{Appendix}
+Include extra screenshots of code snippets or experimental results or further experimental results that couldn’t fit into the main report due to space constraints.
+
+\end{document}
