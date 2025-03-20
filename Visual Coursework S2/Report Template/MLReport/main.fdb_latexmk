@@ -1,0 +1,14 @@
+# Fdb version 4
+["pdflatex"] 1742065115.03557 "main.tex" "main.pdf" "main" 1742065120.08991 2
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1714953600 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1714953600 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1742062505 7766285 688f07f0c35c2859188dddd9f0401086 ""
+  "cvpr.sty" 0 -1 0 ""
+  "main.aux" 1742062111.4069 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1742062072.88505 7057 22bf1b7720a2c445254c1f698bd7f545 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)
